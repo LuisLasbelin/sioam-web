@@ -1,0 +1,38 @@
+.bgimg {
+  background-image: url(/assets/SIOAM.jpg);
+  height: 700px;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: black;
+    display: flex;
+    justify-content: center;
+
+    .title {
+      background-color: black;
+      color: white;
+      padding: 18px 8px 18px 18px;
+      font-size: larger;
+      letter-spacing: 10px;
+    }
+  }
+}
+
+.body {
+  margin-top: 2em;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+.viewer {
+  width: 100%;
+}
