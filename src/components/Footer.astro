@@ -1,16 +1,12 @@
 ---
-import Image from "astro/components/Image.astro";
-import diputacio from "../assets/Dipu_negativo_solo.png"
-import gva from "../assets/gv_distintiu_horitzontal_blanc_val.png"
-
 const today = new Date();
 ---
 
 <footer>
 	&copy; {today.getFullYear()} SIOAM.
 	<div class="logos">
-		<Image src={diputacio} alt={"Diputació de València"} width={200} class="logo"/>
-		<Image src={gva} alt={"Generalitat Valenciana"} width={200} class="logo"/>
+		<img src={"https://pub-0b436f949b31421fb72eff5540589489.r2.dev/Dipu_negativo_solo.png"} alt={"Diputació de València"} width={200} class="logo"/>
+		<img src={"https://pub-0b436f949b31421fb72eff5540589489.r2.dev/gv_distintiu_horitzontal_blanc_val.png"} alt={"Generalitat Valenciana"} width={200} class="logo"/>
 	</div>
 </footer>
 <style>
