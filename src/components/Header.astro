@@ -17,7 +17,7 @@ import Image from "astro/components/Image.astro";
       </a>
     </div>
     <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/">Inicio</HeaderLink>
       <HeaderLink href="/noticias">Noticias</HeaderLink>
       <HeaderLink href="/sociedad">Sociedad</HeaderLink>
       <HeaderLink href="/escuela">Escuela</HeaderLink>
@@ -44,48 +44,44 @@ import Image from "astro/components/Image.astro";
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin: 0 2em 0 2em;
   }
   nav .internal-links a {
     padding: 1em 0.5em;
     color: var(--black);
     border-bottom: 4px solid transparent;
     text-decoration: none;
-  }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
-  }
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
+    &.active {
+      text-decoration: none;
+      margin-bottom: solid 1px var(--accent);
+      border-bottom-color: var(--accent);
     }
   }
 
   .internal-links {
-	flex: 2;
+    flex: 2;
+    display: flex;
+    justify-content: end;
+    gap: 1em;
   }
 
   .title-logo {
-	flex: 1;
+    flex: 1;
   }
 
   .title-box {
     display: flex;
     flex-direction: row;
     max-height: 64px;
-	padding: 0;
-	text-decoration: none;
+    padding: 0;
+    text-decoration: none;
   }
 
   .title-text {
-	display: flex;
-	flex-direction: column;
-	justify-content: end;
-	gap: 4px
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 4px;
   }
 
   .title {
