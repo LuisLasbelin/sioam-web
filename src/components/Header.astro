@@ -3,6 +3,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 import seal from "../assets/sello-sioam.png";
 import Image from "astro/components/Image.astro";
+import hamburger from '../assets/hamburger-menu-svgrepo-com.png'
 ---
 
 <header>
@@ -25,6 +26,9 @@ import Image from "astro/components/Image.astro";
       <HeaderLink href="/banda-juvenil">B.Juvenil</HeaderLink>
       <HeaderLink href="/orquesta">Orquesta</HeaderLink>
       <HeaderLink href="/contacto">Contacto</HeaderLink>
+    </div>
+    <div class="hamburger">
+      <Image width={32} src={hamburger} alt={"hamburger menu"}/>
     </div>
   </nav>
 </header>
@@ -66,26 +70,38 @@ import Image from "astro/components/Image.astro";
   }
 
   .internal-links {
-	flex: 2;
+    flex: 2;
+    @media (max-width: 720px) {
+      position: absolute;
+      top: -200px;
+    }
+  }
+
+  .hamburger {
+    display:none;
+    @media (max-width: 720px) {
+      display: flex;
+      cursor: pointer;
+    }
   }
 
   .title-logo {
-	flex: 1;
+    flex: 1;
   }
 
   .title-box {
     display: flex;
     flex-direction: row;
     max-height: 64px;
-	padding: 0;
-	text-decoration: none;
+    padding: 0;
+    text-decoration: none;
   }
 
   .title-text {
-	display: flex;
-	flex-direction: column;
-	justify-content: end;
-	gap: 4px
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 4px;
   }
 
   .title {
