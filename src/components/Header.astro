@@ -1,61 +1,100 @@
 ---
-import { SITE_TITLE } from '../consts';
-import HeaderLink from './HeaderLink.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import HeaderLink from "./HeaderLink.astro";
+import seal from "../assets/sello-sioam.png";
+import Image from "astro/components/Image.astro";
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/noticias">Noticias</HeaderLink>
-			<HeaderLink href="/sociedad">Sociedad</HeaderLink>
-			<HeaderLink href="/escuela">Escuela</HeaderLink>
-			<HeaderLink href="/banda">Banda</HeaderLink>
-			<HeaderLink href="/banda-juvenil">B.Juvenil</HeaderLink>
-			<HeaderLink href="/orquesta">Orquesta</HeaderLink>
-			<HeaderLink href="/contacto">Contacto</HeaderLink>
-		</div>
-	</nav>
+  <nav>
+    <div class="title-logo">
+      <a class="title-box" href="/">
+        <Image width={64} height={64} src={seal} alt="Logo de la SIOAM" />
+        <div class="title-text">
+          <h2 class="title">{SITE_TITLE}</h2>
+          <h3 class="subtitle">{SITE_DESCRIPTION}</h3>
+        </div>
+      </a>
+    </div>
+    <div class="internal-links">
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/noticias">Noticias</HeaderLink>
+      <HeaderLink href="/sociedad">Sociedad</HeaderLink>
+      <HeaderLink href="/escuela">Escuela</HeaderLink>
+      <HeaderLink href="/banda">Banda</HeaderLink>
+      <HeaderLink href="/banda-juvenil">B.Juvenil</HeaderLink>
+      <HeaderLink href="/orquesta">Orquesta</HeaderLink>
+      <HeaderLink href="/contacto">Contacto</HeaderLink>
+    </div>
+  </nav>
 </header>
 <style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
+  header {
+    margin: 0;
+    padding: 0 1em;
+    background: white;
+    box-shadow: 0 2px 8px rgba(var(--black), 5%);
+  }
+  h2 {
+    margin: 0;
+    font-size: 1em;
+  }
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  nav .internal-links a {
+    padding: 1em 0.5em;
+    color: var(--black);
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+  }
+  nav a.active {
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+  }
+  .social-links,
+  .social-links a {
+    display: flex;
+  }
+  @media (max-width: 720px) {
+    .social-links {
+      display: none;
+    }
+  }
+
+  .internal-links {
+	flex: 2;
+  }
+
+  .title-logo {
+	flex: 1;
+  }
+
+  .title-box {
+    display: flex;
+    flex-direction: row;
+    max-height: 64px;
+	padding: 0;
+	text-decoration: none;
+  }
+
+  .title-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	gap: 4px
+  }
+
+  .title {
+    padding: 0;
+  }
+
+  .subtitle {
+    padding: 0;
+    font-size: small;
+    font-weight: 100;
+  }
 </style>
