@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = 'SIOAM';
 export const SITE_DESCRIPTION = 'Sociedad Musical de Benimamet';
+export const SITE_NAME = 'SIOAM de Benimamet';

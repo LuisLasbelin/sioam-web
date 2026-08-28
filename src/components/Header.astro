@@ -18,7 +18,7 @@ import hamburger from '../assets/hamburger-menu-svgrepo-com.png'
       </a>
     </div>
     <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/">Inicio</HeaderLink>
       <HeaderLink href="/noticias">Noticias</HeaderLink>
       <HeaderLink href="/sociedad">Sociedad</HeaderLink>
       <HeaderLink href="/escuela">Escuela</HeaderLink>
@@ -48,24 +48,17 @@ import hamburger from '../assets/hamburger-menu-svgrepo-com.png'
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin: 0 2em 0 2em;
   }
   nav .internal-links a {
     padding: 1em 0.5em;
     color: var(--black);
     border-bottom: 4px solid transparent;
     text-decoration: none;
-  }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
-  }
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
+    &.active {
+      text-decoration: none;
+      margin-bottom: solid 1px var(--accent);
+      border-bottom-color: var(--accent);
     }
   }
 
