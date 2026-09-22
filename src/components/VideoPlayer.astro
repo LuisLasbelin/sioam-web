@@ -1,0 +1,42 @@
+---
+interface Props {
+  src: string;
+  title?: string;
+  width?: number;
+  height?: number;
+  allow?: string;
+}
+
+const {
+  src,
+  title = "Video",
+  width = 560,
+  height = 315,
+  allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+} = Astro.props;
+---
+
+<div class="video-wrapper">
+  <iframe
+    src={src}
+    title={title}
+    width={width}
+    height={height}
+    frameborder="0"
+    allow={allow}
+    allowfullscreen
+  />
+</div>
+
+<style>
+  .video-wrapper {
+    margin: 2rem auto;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .video-wrapper iframe {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+</style>
