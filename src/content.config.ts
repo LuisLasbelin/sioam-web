@@ -13,7 +13,7 @@ const noticias = defineCollection({
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
-			heroImage: image().optional(),
+			heroImage: z.string().optional(),
 		}),
 });
 
@@ -25,7 +25,7 @@ const pages = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
-			heroImage: image().optional(),
+			heroImage: z.string().optional(),
 		}),
 });
 
