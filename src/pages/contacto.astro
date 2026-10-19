@@ -3,34 +3,61 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-import "../styles/landing.css";
+import "../styles/page.css";
+import { Leaflet } from "astro-leaflet";
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <Header />
     <main>
-      <div class="bgimg">
-        <div class="caption">
-          <div class="title">SIOAM</div>
-        </div>
-      </div>
       <div class="body">
-        <h1>¡Conoce nuestra banda!</h1>
-        <p>
-          Te doy la bienvenida a la Sociedad Instructiva del Obrero Agrícola y
-          Musical de Benimámet.
-        </p>
-        <iframe
-          id="player"
-          width="640"
-          height="420"
-          src="http://www.youtube.com/embed/W7kNM2zkWlk?enablejsapi=1&origin=http://example.com"
-          frameborder="0" class="viewer"></iframe>
+        <h1>Contacta con nosotros</h1>
+        <div class="columns2">
+          <div>
+            <ul>
+              <li>
+                <span class="material-symbols-outlined"> location_away </span><a
+                  href="https://www.google.com/maps/place/SIOAM+Benimamet/@39.5005068,-0.4186697,20.71z/data=!4m6!3m5!1s0xd60457168ad3815:0xadf245ad7cc70992!8m2!3d39.5005311!4d-0.4187013!16s%2Fg%2F11c584x9kb?entry=ttu&g_ep=EgoyMDI2MDgyNS4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Carrer Felipe Valls 30, 46035, Benimamet, València.</a
+                >
+              </li>
+              <li>
+                <span class="material-symbols-outlined"> call </span> Teléfono +34
+                676713454
+              </li>
+            </ul>
+          </div>
+          <div>
+            <Leaflet
+              options={{
+                tileLayer: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                tileLayerOptions: {
+                  attribution:
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                },
+                markers: [
+                  {
+                    latlng: [39.500491, -0.418658],
+                    options: { title: "SIOAM" },
+                  }
+                ],
+                center: [39.500491, -0.418658],
+                zoom: 18
+              }}
+            />
+          </div>
+        </div>
       </div>
     </main>
     <Footer />

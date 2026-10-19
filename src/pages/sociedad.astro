@@ -1,38 +1,16 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-import "../styles/landing.css";
+import { getEntry, render } from "astro:content";
+import Page from "../layouts/Page.astro";
+
+const entry = await getEntry("pages", "sociedad");
+
+if (!entry) {
+  throw new Error("Entry not found");
+}
+
+const { Content } = await render(entry);
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <div class="bgimg">
-        <div class="caption">
-          <div class="title">SIOAM</div>
-        </div>
-      </div>
-      <div class="body">
-        <h1>¡Conoce nuestra banda!</h1>
-        <p>
-          Te doy la bienvenida a la Sociedad Instructiva del Obrero Agrícola y
-          Musical de Benimámet.
-        </p>
-        <iframe
-          id="player"
-          width="640"
-          height="420"
-          src="http://www.youtube.com/embed/W7kNM2zkWlk?enablejsapi=1&origin=http://example.com"
-          frameborder="0" class="viewer"></iframe>
-      </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Page {...entry.data}>
+  <Content />
+</Page>

@@ -12,12 +12,12 @@
     top: 50%;
     width: 100%;
     text-align: center;
-    color: black;
+    color: var(--accent-dark);
     display: flex;
     justify-content: center;
 
     .title {
-      background-color: black;
+      background-color: var(--accent-dark);
       color: white;
       padding: 18px 8px 18px 18px;
       font-size: larger;

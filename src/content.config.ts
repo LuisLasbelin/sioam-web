@@ -1,5 +1,6 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection} from 'astro:content';
 import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const noticias = defineCollection({
 	// Load Markdown and MDX files in the `src/content/blog/` directory.
@@ -16,4 +17,17 @@ const noticias = defineCollection({
 		}),
 });
 
-export const collections = { noticias };
+const pages = defineCollection({
+	// Load Markdown and MDX files in the `src/content/blog/` directory.
+	loader: glob({ base: './src/content/pages', pattern: '**/*.{md,mdx}' }),
+	// Type-check frontmatter using a schema
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			heroImage: image().optional(),
+		}),
+});
+
+
+export const collections = { noticias, pages };
